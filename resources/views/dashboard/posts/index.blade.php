@@ -9,12 +9,12 @@
   {{session('success')}}
 </div>
 @endif
-<div class="table-responsive col-lg-8">
+<div class="table-responsive col-lg-10">
   <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create New Post</a>
   <table class="table table-striped table-sm">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">No</th>
         <th scope="col">Title</th>
         <th scope="col">Category</th>
         <th scope="col">Action</th>
@@ -28,12 +28,12 @@
         <td>{{$post->title}}</td>
         <td>{{$post->category->name}}</td>
         <td>
-          <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
-          <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+          <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><span data-feather="eye"></span> Detail</a>
+          <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge bg-warning"><span data-feather="edit"></span> Edit</a>
           <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
           @method ('delete')
           @csrf
-          <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span></button>
+          <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span> Hapus</button>
           </form>
         </td>
       </tr>
